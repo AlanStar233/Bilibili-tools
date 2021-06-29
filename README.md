@@ -9,6 +9,8 @@ B站相关的小工具
 
 动态抽奖工具:&nbsp;&nbsp;&nbsp;&nbsp;[Find_The_Luckydog.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/Find_The_Luckydog.py)&nbsp;&nbsp;&nbsp;&nbsp;Forked from [@techzjc](https://github.com/techzjc)
 
+用户信息查询:&nbsp;&nbsp;&nbsp;&nbsp;[User_Info.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/User_Info.py)
+
 --------------------------------------------------------------------------------
 
 欢迎合理使用
