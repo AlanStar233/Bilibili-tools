@@ -1,7 +1,7 @@
 # Bilibili-tools
 B站相关的小工具
 
-<div align="center"><img src="https://img.shields.io/github/stars/AlanStar233/Bilibili-tools">&nbsp; <img src="https://img.shields.io/github/AlanStar233/Bilibili-tools?color=%23f8e71c">&nbsp;<img src="https://img.shields.io/github/issues/AlanStar233/Bilibili-tools?color=%237ed321"></div>
+<div align="center"><img src="https://img.shields.io/github/stars/AlanStar233/Bilibili-tools">&nbsp; <img src="https://img.shields.io/github/AlanStar233/Bilibili-tools">&nbsp; <img src="https://img.shields.io/github/issues/AlanStar233/Bilibili-tools?color=%237ed321"></div>
 
 --------------------------------------------------------------------------------
 
