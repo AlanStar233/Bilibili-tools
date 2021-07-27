@@ -32,6 +32,38 @@ Uname = dynamic_data['data']['card']['desc']['user_profile']['info']['uname']
 official_verify_type = dynamic_data['data']['card']['desc']['user_profile']['card']['official_verify']['type']
 official_verify_desc = dynamic_data['data']['card']['desc']['user_profile']['card']['official_verify']['desc']
 
+# 定义uid，api，headers
+userinfo_api = 'http://api.bilibili.com/x/space/acc/info?mid={}'.format(UID)
+
+# 配置response和data
+userinfo_resp = requests.get(userinfo_api, headers=headers)
+user_data = userinfo_resp.text
+user_selector = html.fromstring(user_data)
+
+# user_data转换为Python格式
+user_data = json.loads(user_data)
+
+# 认证码及认证身份类型初始化
+official_role_num = user_data['data']['official']['role']
+official_role = ''
+
+# 认证身份判定
+if official_role_num == 0:
+    official_role = '未认证'
+elif 1 <= official_role_num <= 2:
+    official_role = '个人认证'
+elif 3 <= official_role_num <= 6:
+    official_role = '企业认证'
+
+# 认证类型转换为具体描述
+if official_verify_type == -1:
+    official_verify_type = '未认证'
+elif official_verify_type == 1:
+    official_verify_type = '已认证'
+# 认证描述为空时判定
+if official_verify_desc == '':
+    official_verify_desc = '未认证或暂无描述'
+
 # 打印
 print('------------------------------')
 print('动态数据')
@@ -46,7 +78,8 @@ print('UID:', UID)
 print('用户名:', Uname)
 print('------------------------------')
 print('动态发送者认证数据')
-print('认证代号:', official_verify_type)
+print('认证状态:', official_verify_type)
+print('认证类型:', official_role, '认证码:', official_role_num)
 print('认证描述:', official_verify_desc)
 print('------------------------------')
 
