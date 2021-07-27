@@ -2,9 +2,17 @@ import requests
 import json
 import os
 from lxml import html
+from urllib.parse import urlparse
+
+# 通过输入的动态URL提取path，即未处理的dynamic_id
+url = input('请输入动态URL:')
+parsed_result = urlparse(url)
+url_path = parsed_result.path
+
+# 获取dynamic_id (去除'/')
+dynamic_id = url_path.replace('/', '')
 
 # 预定义dynamic_id，api，headers
-dynamic_id = input('请输入动态ID:')
 api = 'https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/get_dynamic_detail?dynamic_id={}'.format(dynamic_id)
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
@@ -67,6 +75,7 @@ if official_verify_desc == '':
 # 打印
 print('------------------------------')
 print('动态数据')
+print('动态id:', dynamic_id)
 print('rid:', rid)
 print('浏览量:', view)
 print('赞:', like)
