@@ -13,6 +13,8 @@ B站相关的小工具
 
 用户信息查询:&nbsp;&nbsp;&nbsp;&nbsp;[User_Info.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/User_Info.py)
 
+获得动态信息:&nbsp;&nbsp;&nbsp;&nbsp;[Get_dynamic_info.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/Get_dynamic_info.py)
+
 --------------------------------------------------------------------------------
 
 欢迎合理使用
