@@ -66,7 +66,7 @@ elif 3 <= official_role_num <= 6:
 # 认证类型转换为具体描述
 if official_verify_type == -1:
     official_verify_type = '未认证'
-elif official_verify_type == 1:
+elif 1 >= official_verify_type >= 0:
     official_verify_type = '已认证'
 # 认证描述为空时判定
 if official_verify_desc == '':
