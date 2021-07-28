@@ -62,6 +62,8 @@ elif 1 <= official_role_num <= 2:
     official_role = '个人认证'
 elif 3 <= official_role_num <= 6:
     official_role = '企业认证'
+elif official_role_num == 7:
+    official_role = '个人认证'
 
 # 认证类型转换为具体描述
 if official_verify_type == -1:

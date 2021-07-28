@@ -1,7 +1,6 @@
 import requests
 import json
 import time
-import datetime
 from lxml import html
 
 # 定义uid，api，headers
@@ -116,7 +115,9 @@ elif VIP_status == '1':
     VIP_status = '生效中'
 
 # VIP到期日期 格式化
-# 算了...不写了...不会写...有会的人Pull一下，我会合并的
+VIP_due_date = VIP_due_date/1000
+# print('VIP_due_date type:', type(VIP_due_date))
+VIP_due_date = time.strftime('%Y{Y}%m{m}%d{d} %H:%M:%S', time.localtime(VIP_due_date)).format(Y='年', m='月', d='日')
 
 # ------------------------------------------------------------
 

@@ -54,11 +54,11 @@ uploader = video_data['data']['owner']['name']
 
 # 打印结果
 print('------------------------------')
-print("视频标题为:",title)
+print("视频标题为:", title)
 print('------------------------------')
-print("UP主为:",uploader)
+print("UP主为:", uploader)
 print('------------------------------')
-print("图片地址为:",pic_source)
+print("图片地址为:", pic_source)
 print('------------------------------')
 
 
