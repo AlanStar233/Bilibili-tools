@@ -15,6 +15,8 @@ B站相关的小工具
 
 获得动态信息:&nbsp;&nbsp;&nbsp;&nbsp;[Get_dynamic_info.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/Get_dynamic_info.py)
 
+查看视频信息:&nbsp;&nbsp;&nbsp;&nbsp;[Get_Video_info.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/Get_Video_info.py)
+
 --------------------------------------------------------------------------------
 
 使用时需要下载整个包，并在对应文件中看到import的轮子，自行安装即可(懒得整理文件夹，因为某些文件之间存在关联)
