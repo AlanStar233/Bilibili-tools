@@ -1,5 +1,10 @@
-requests
+requests~=2.25.1
 json
 os
-lxml
+lxml~=4.6.3
 urllib.parse
+PyMySQL~=1.0.2
+DateTime~=4.3
+future~=0.18.2
+qrcode~=7.2
+Pillow~=7.0.0

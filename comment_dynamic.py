@@ -13,10 +13,10 @@ class Comment(object):
         self.dynamic_detail = self.get_dynamic_details(dynamic_id)
 
     def get_comment_uid_list(self, sort=2, ps=49, counter=1, refresh_interval=5, sleep=1, next_reply=0, remove_repeat=True):
-        # Technique to avoid 412
+        # 防止 412 错误
         if counter % refresh_interval == 0:
             time.sleep(sleep)
-        # Detect reply type & oid
+        # 检测回复的 type 和 oid
         dynamic_type = str(self.dynamic_detail['data']['card']['desc']['type'])
         if dynamic_type in dynamic_types['types']:
             type_data = dynamic_types['types'][dynamic_type]
@@ -26,11 +26,11 @@ class Comment(object):
                 oid = oid[k]
             type_value = type_data['value']
 
-            # API - Only Display Main Replies
+            # API - 只展示主楼回复
             # comment_url = 'https://api.bilibili.com/x/v2/reply?type={}&oid={}&sort={}&ps={}&pn={}'.format(type_value, oid, sort, ps, pn)
-            # API - Replies with Part of Sub-replies
+            # API - 展示主楼和楼中楼回复
             comment_url = 'https://api.bilibili.com/x/v2/reply/main?type={}&oid={}&mode={}&ps={}&next={}'.format(type_value, oid, sort, ps, next_reply)
-            # Obtain reply for current page
+            # 获取当前页的回复
             while True:
                 try:
                     topic_info_response = self.session.get(comment_url)
@@ -46,18 +46,18 @@ class Comment(object):
                 else:
                     raise ValueError
             reply_list = comment_info['data']['replies']
-            # Total Count Approach for API - Only Display Main Replies
-            # total_replies = comment_info['data']['page']['count']
-            # Total Count Approach for API - Replies with Part of Sub-replies
-            # total_replies = comment_info['data']['cursor']['all_count']
+            # API的总计数方法-仅显示主答复
+            # 回复总数=评论信息['data']['page']['count']
+            # API的总计数方法-包含部分子答复的答复
+            # 回复总数=评论信息['data']['cursor']['all\u count']
             uid_list = []
-            # Avoid error caused by empty replies
+            # 避免空回复导致错误
             if reply_list is None:
                 return []
-            # Add UID for each reply
+            # 给每个回复添加UID
             for reply in reply_list:
                 uid_list.append(reply['mid'])
-            # Check if there is another page for API - Only Display Main Replies
+            # 检查是否有另一个API页面-仅显示主要回复
             # if total_replies - ps * counter > 0:
             #     uid_list.extend(self.get_comment_uid_list(sort, ps, counter + 1))
             next_reply = comment_info['data']['cursor']['next']
@@ -87,10 +87,10 @@ class Comment(object):
             return dynamic_detail
 
     def get_comment_uname_list(self, sort=2, ps=49, counter=1, refresh_interval=5, sleep=1, next_reply=0, remove_repeat=True):
-        # Technique to avoid 412
+        # 防止412错误
         if counter % refresh_interval == 0:
             time.sleep(sleep)
-        # Detect reply type & oid
+        # 检查回复的 type 和 oid
         dynamic_type = str(self.dynamic_detail['data']['card']['desc']['type'])
         if dynamic_type in dynamic_types['types']:
             type_data = dynamic_types['types'][dynamic_type]

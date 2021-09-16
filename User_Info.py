@@ -81,7 +81,7 @@ if official_type == '-1':
 elif '0' <= official_type <= '1':
     official_type = '已认证'
 
-# 认证类型状态转换
+# 认证类别状态转换
 official_role_status = ''
 if official_role == 0:
     official_role_status = '未认证'
@@ -89,7 +89,31 @@ elif 1 <= official_role <= 2:
     official_role_status = '个人认证'
 elif 3 <= official_role <= 6:
     official_role_status = '企业认证'
+elif official_role == 7:
+    official_role_status = '个人认证'
+elif official_role == 8:
+    official_role_status = '专业领域认证'
 
+# 认证类型
+official_role_type = ''
+if official_role == 0:
+    official_role_type = '未认证'
+elif official_role == 1:
+    official_role_type = '知名UP主认证'
+elif official_role == 2:
+    official_role_type = '个人身份认证'
+elif official_role == 3:
+    official_role_type = '企业认证'
+elif official_role == 4:
+    official_role_type = '政府认证'
+elif official_role == 5:
+    official_role_type = '媒体认证'
+elif official_role == 6:
+    official_role_type = '组织认证'
+elif official_role == 7:
+    official_role_type = '个人领域认证'
+elif official_role == 8:
+    official_role_type = '职业资质认证'
 # 认证备注状态转换
 if official_desc == '':
     official_desc = '无'
@@ -161,7 +185,7 @@ print('是否拥有自己的粉丝勋章:', fans_badge)
 print('------------------------------')
 print('认证信息:')
 print('是否认证:', official_type)
-print('认证类型:', official_role_status, '认证代码:', official_role)
+print('认证类别:', official_role_status, '认证类型:', official_role_type, '认证代码:', official_role)
 print('认证信息:', official_title)
 print('认证备注:', official_desc)
 print('------------------------------')

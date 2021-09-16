@@ -103,6 +103,23 @@ video_owner_UID = video_data['data']['owner']['mid']  # up主UID
 video_owner_name = video_data['data']['owner']['name']  # up主昵称
 
 # 状态转换
+# 状态码解读
+response_status = ''
+response_code = str(response_code)
+if response_code == '0':
+    response_status = '请求成功'
+elif response_code == '-400':
+    response_status = '请求错误'
+elif response_code == '-403':
+    response_status = '权限不足'
+elif response_code == '-404':
+    response_status = '无此视频'
+elif response_code == '62002':
+    response_status = '稿件不可见'
+# 错误信息
+response_message = str(response_message)
+if response_message == '0':
+    response_message = '暂无'
 # 视频状态
 video_state = str(video_state)
 if video_state == '1':
@@ -149,6 +166,12 @@ elif video_state == '-40':
     video_state = '定时发布'
 elif video_state == '-100':
     video_state = '用户删除'
+# 视频类型
+video_copyright = str(video_copyright)
+if video_copyright == '1':
+    video_copyright = '转载'
+elif video_copyright == '2':
+    video_copyright = '自制'
 # 是否支持充电
 video_rights_elec = str(video_rights_elec)
 if video_rights_elec == '1':
@@ -224,6 +247,7 @@ video_pubdate = time.strftime('%Y年%m月%d日 %H:%M:%S', time.localtime(video_p
 print('------------------------------')
 print('API返回信息:')
 print('响应码:', response_code)
+print('响应解释:', response_status)
 print('错误信息:', response_message)
 print('------------------------------')
 print('视频基本信息:')
