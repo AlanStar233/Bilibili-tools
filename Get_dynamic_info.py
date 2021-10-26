@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import time
 from lxml import html
 from urllib.parse import urlparse
 
@@ -33,6 +34,7 @@ view = dynamic_data['data']['card']['desc']['view']
 like = dynamic_data['data']['card']['desc']['like']
 comment = dynamic_data['data']['card']['desc']['comment']
 repost = dynamic_data['data']['card']['desc']['repost']
+dynamic_release_time = dynamic_data['data']['card']['desc']['timestamp']
 # 发送者数据
 UID = dynamic_data['data']['card']['desc']['uid']
 Uname = dynamic_data['data']['card']['desc']['user_profile']['info']['uname']
@@ -74,9 +76,13 @@ elif 1 >= official_verify_type >= 0:
 if official_verify_desc == '':
     official_verify_desc = '未认证或暂无描述'
 
+# 动态发布时间时间戳转换
+dynamic_release_time = time.strftime('%Y{Y}%m{m}%d{d} %H:%M:%S', time.localtime(dynamic_release_time)).format(Y='年', m='月', d='日')
+
 # 打印
 print('------------------------------')
 print('动态数据')
+print('发布时间:', dynamic_release_time)
 print('动态id:', dynamic_id)
 print('rid:', rid)
 print('浏览量:', view)

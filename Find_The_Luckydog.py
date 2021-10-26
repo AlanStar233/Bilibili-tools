@@ -1,4 +1,5 @@
 import random
+import os
 from comment_dynamic import Comment
 
 id = input('动态ID: ')
@@ -15,3 +16,5 @@ for i in range(times):
     print('恭喜', user_list[winner], '(UID:', winner, '\b) 获得本次奖励！')
     winners.update({winner: user_list[winner]})
     user_list.pop(winner)
+
+os.system("pause")
