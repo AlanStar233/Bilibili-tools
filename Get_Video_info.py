@@ -3,6 +3,7 @@ import json
 import time
 from lxml import html
 from json import JSONDecodeError
+
 # 预定义aid，bv2av_api，headers
 aid = ''
 bvid = ''
@@ -10,6 +11,7 @@ bv2av_api = 'https://api.bilibili.com/x/web-interface/view'
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
 }
+
 
 # BV转AV
 def bv_to_av(bv):
@@ -20,6 +22,7 @@ def bv_to_av(bv):
     except (KeyError, TypeError):
         return '获取av号失败'
 
+
 # 定义一个decode_json(r)方法
 def decode_json(r):
     try:
@@ -29,6 +32,7 @@ def decode_json(r):
         return -1
     else:
         return response
+
 
 # 交互页面
 mode = input('AV号模式(1) / BV号模式(2) :')
@@ -296,4 +300,3 @@ print('视频所属up主信息:')
 print('UP主UID:', video_owner_UID)
 print('UP主昵称:', video_owner_name)
 print('------------------------------')
-

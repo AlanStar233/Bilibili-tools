@@ -6,6 +6,8 @@ from lxml import html
 # 定义uid，api，headers
 uid = input('请输入用户UID:')
 api = 'http://api.bilibili.com/x/space/acc/info?mid={}'.format(uid)
+# 免登录态查询用户注册时间(随时可能失效)
+user_regtime_api = 'http://api.live.bilibili.com/user/v3/User/getMultiple?attributes[]=card&uids[]={}'.format(uid)
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
 }
@@ -13,10 +15,15 @@ headers = {
 # 配置response和user_data
 resp = requests.get(api, headers=headers)
 user_data = resp.text
-selector = html.fromstring(user_data)
+
+# 已失效
+# user_reg_resp = requests.get(user_regtime_api, headers=headers)
+# user_reg_data = user_reg_resp.text
 
 # 返回Python数据类型
 user_data = json.loads(user_data)
+
+# user_reg_data = json.loads(user_reg_data) (已失效)
 
 # 定义查询变量
 # 个人信息
@@ -49,6 +56,8 @@ LiveRoom_Cover = user_data['data']['live_room']['cover']  # 直播间封面地�
 LiveRoom_online = user_data['data']['live_room']['online']  # 直播间人气
 LiveRoom_roomid = user_data['data']['live_room']['roomid']  # 直播间ID(短号)
 
+# 用户注册时间
+# User_Regtime = user_reg_data['data'][uid]['card']['regtime']  (已失效)
 # 状态转换
 # ------------------------------------------------------------
 
@@ -171,6 +180,11 @@ if LiveRoom_Cover == '':
 
 # ------------------------------------------------------------
 
+# 注册时间
+
+# 注册时间转换
+# User_Regtime = time.strftime('%Y{Y}%m{m}%d{d} %H:%M:%S', time.localtime(User_Regtime)).format(Y='年', m='月', d='日')    (已失效)
+# ------------------------------------------------------------
 # 打印结果
 print('------------------------------')
 print('用户个人信息:')
@@ -180,6 +194,7 @@ print('用户性别:', sex)
 print('用户等级:', 'lv', level)
 print('用户签名:', sign)
 print('用户状态:', silence)
+# print('注册时间:', User_Regtime)  (已失效)
 print('生日:', birthday)
 print('是否拥有自己的粉丝勋章:', fans_badge)
 print('------------------------------')

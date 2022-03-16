@@ -1,0 +1,43 @@
+{
+    "case_type":{
+        "1":{
+            "comment":[
+                "mid",
+                "uname",
+                "face",
+                "content",
+                "child_comments"
+            ],
+            "danmu_img":[],
+            "comments":[],
+            "single_danmu":[]
+        },
+        "2":{
+            "comment":[],
+            "danmu_img":[],
+            "comments":[
+                "mid",
+                "uname",
+                "face",
+                "content",
+                "child_comments"
+            ]
+        },
+        "3":{
+            "comment":"null",
+            "danmu_img":" ",
+            "comments":"null",
+            "single_danmu":[
+                "id_str",
+                "content",
+                "progress"
+            ]
+        },
+        "4":{
+            "comment":"null",
+            "danmu_img":" ",
+            "comments":"null",
+            "single_danmu":"null"
+        }
+    }
+}

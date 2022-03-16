@@ -22,7 +22,6 @@ headers = {
 # 配置response和data
 resp = requests.get(api, headers=headers)
 dynamic_data = resp.text
-selector = html.fromstring(dynamic_data)
 
 # 返回Python数据类型
 dynamic_data = json.loads(dynamic_data)
@@ -41,6 +40,11 @@ Uname = dynamic_data['data']['card']['desc']['user_profile']['info']['uname']
 # 发送者认证数据
 official_verify_type = dynamic_data['data']['card']['desc']['user_profile']['card']['official_verify']['type']
 official_verify_desc = dynamic_data['data']['card']['desc']['user_profile']['card']['official_verify']['desc']
+
+# 新:归属话题
+new_topic_id = dynamic_data['data']['card']['display']['topic_info']['new_topic']['id']
+new_topic_name = dynamic_data['data']['card']['display']['topic_info']['new_topic']['name']
+new_topic_link = dynamic_data['data']['card']['display']['topic_info']['new_topic']['link']
 
 # 定义uid，api，headers
 userinfo_api = 'http://api.bilibili.com/x/space/acc/info?mid={}'.format(UID)
@@ -98,6 +102,11 @@ print('动态发送者认证数据')
 print('认证状态:', official_verify_type)
 print('认证类型:', official_role, '认证码:', official_role_num)
 print('认证描述:', official_verify_desc)
+print('------------------------------')
+print('归属话题数据')
+print('归属话题id:', new_topic_id)
+print('归属话题名称:', new_topic_name)
+print('归属话题链接:', new_topic_link)
 print('------------------------------')
 
 # 调用系统函数pause
