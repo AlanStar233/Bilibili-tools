@@ -43,7 +43,7 @@ $ git clone https://github.com/AlanStar233/Bilibili-tools.git
 
 指路→	 https://python.org
 
-​	如果你**配置完毕**，需要安装工程中提供的**<u>requirements.txt</u>**，因为程序需要依赖一些**轮子(pip)**来实现，这是**必要的**。
+​	如果你**配置完毕**，需要安装工程中提供的<u>requirements.txt</u>，因为程序需要依赖一些**轮子(pip)**来实现，这是**必要的**。
 
 ​	配置**只需要一步**(如果你的网络质量良好的话:sweat_drops:)
 
