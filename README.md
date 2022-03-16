@@ -41,7 +41,7 @@ $ git clone https://github.com/AlanStar233/Bilibili-tools.git
 
 ​	如果你是**第一次**接触Python程序，你需要**自行配置**Python环境。
 
-指路→	 https://python.org
+​	指路→	 https://python.org
 
 ​	如果你**配置完毕**，需要安装工程中提供的<u>requirements.txt</u>，因为程序需要依赖一些**轮子(pip)**来实现，这是**必要的**。
 
