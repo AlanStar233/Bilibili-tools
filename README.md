@@ -23,6 +23,8 @@ B站相关的小工具
 
 **拉取动态评论区主楼信息**：[Special_Tools.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/Special_Tools.py)
 
+**拉取风纪委员会(2.0)观点**：[bili_judgement.py](https://github.com/AlanStar233/Bilibili-tools/blob/main/bili_judgement/bili_judgement.py)
+
 --------------------------------------------------------------------------------
 
 ## :egg:如何食用？
